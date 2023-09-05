@@ -11,11 +11,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        //bloqueo de orientación de telefono por defecto Portrait
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        //splashScreen con logo al inicio de la app con duración de 2 seg
         setTheme(R.style.Theme_ChuteApp);
-
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
+    //Evento botón ingresar en pantalla inicio de sesión
     public void onClickIngreso(View view){
         Intent intent = new Intent(this, Ingreso.class);
         startActivity(intent);

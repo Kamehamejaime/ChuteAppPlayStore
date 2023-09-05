@@ -8,6 +8,7 @@
     tools:context=".MainActivity"
     android:background="@drawable/gradient">
 
+   <!--Logo pantalla inicio sesión-->
    <ImageView
        android:id="@+id/imageView"
        android:layout_width="220dp"
@@ -19,10 +20,11 @@
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toTopOf="parent" />
 
+   <!--layout donde se agregan elementos de la pantalla de inicio de sesión-->
    <LinearLayout
        android:id="@+id/linearLayout2"
-       android:layout_width="254dp"
-       android:layout_height="585dp"
+       android:layout_width="257dp"
+       android:layout_height="534dp"
        android:orientation="vertical"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
@@ -31,17 +33,16 @@
        app:layout_constraintTop_toBottomOf="@+id/imageView"
        app:layout_constraintVertical_bias="0.0">
 
+      <!--para cambiar la fontFamily agregarla a carpeta fonts en minúsculas y sin guiones-->
       <TextView
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginBottom="30dp"
-          android:fontFamily="@font/zombie"
+          android:fontFamily="@font/chubby"
           android:gravity="center"
-          android:outlineAmbientShadowColor="@color/greenTitle"
           android:text="ChuteApp"
-          android:textColor="#88AD21"
-          android:textSize="50sp"
-          android:textStyle="bold"
+          android:textColor="@color/white"
+          android:textSize="45sp"
           />
 
       <EditText
@@ -76,8 +77,6 @@
           android:onClick="onClickIngreso"
           android:shadowColor="@color/greenEmphasisSecondary"
           android:text="Ingreso" />
-
-
    </LinearLayout>
 
 
