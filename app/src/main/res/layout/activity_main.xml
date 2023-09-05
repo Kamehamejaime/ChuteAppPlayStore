@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/gradient">
+
+   <ImageView
+       android:id="@+id/imageView"
+       android:layout_width="220dp"
+       android:layout_height="220dp"
+       android:layout_marginTop="36dp"
+       android:src="@drawable/balonsplash"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.497"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
+
+   <LinearLayout
+       android:id="@+id/linearLayout2"
+       android:layout_width="254dp"
+       android:layout_height="585dp"
+       android:orientation="vertical"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.496"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/imageView"
+       app:layout_constraintVertical_bias="0.0">
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="30dp"
+          android:fontFamily="@font/zombie"
+          android:gravity="center"
+          android:outlineAmbientShadowColor="@color/greenTitle"
+          android:text="ChuteApp"
+          android:textColor="#88AD21"
+          android:textSize="50sp"
+          android:textStyle="bold"
+          />
+
+      <EditText
+          android:id="@+id/editTextTextEmailAddress"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="20dp"
+          android:hint="Correo electrónico"
+          android:inputType="textEmailAddress"
+          android:outlineSpotShadowColor="@color/white"
+          android:textColor="#C1C1C1"
+          android:textColorHint="#5E5E5E" />
+
+      <EditText
+          android:id="@+id/editTextTextPassword"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="20dp"
+          android:ems="10"
+          android:hint="Contraseña"
+          android:inputType="textPassword"
+          android:textColor="#C1C1C1"
+          android:textColorHighlight="#048693"
+          android:textColorHint="#5E5E5E" />
+
+      <Button
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginHorizontal="20dp"
+          android:layout_marginTop="120dp"
+          android:backgroundTint="#048693"
+          android:onClick="onClickIngreso"
+          android:shadowColor="@color/greenEmphasisSecondary"
+          android:text="Ingreso" />
+
+
+   </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
