@@ -11,14 +11,16 @@
    <!--Logo pantalla inicio sesión-->
    <ImageView
        android:id="@+id/imageView"
-       android:layout_width="220dp"
-       android:layout_height="220dp"
+       android:layout_width="193dp"
+       android:layout_height="194dp"
        android:layout_marginTop="36dp"
+       android:contentDescription="@string/logo_chuteapp"
        android:src="@drawable/balonsplash"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintHorizontal_bias="0.497"
        app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toTopOf="parent" />
+       app:layout_constraintTop_toTopOf="parent"
+       tools:ignore="ImageContrastCheck" />
 
    <!--layout donde se agregan elementos de la pantalla de inicio de sesión-->
    <LinearLayout
@@ -40,9 +42,9 @@
           android:layout_marginBottom="30dp"
           android:fontFamily="@font/chubby"
           android:gravity="center"
-          android:text="ChuteApp"
+          android:text="@string/chuteapp"
           android:textColor="@color/white"
-          android:textSize="45sp"
+          android:textSize="35sp"
           />
 
       <EditText
@@ -50,33 +52,38 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_margin="20dp"
-          android:hint="Correo electrónico"
+          android:autofillHints="Correo electrónico"
+          android:hint="@string/correo_electr_nico"
           android:inputType="textEmailAddress"
+          android:minHeight="48dp"
           android:outlineSpotShadowColor="@color/white"
           android:textColor="#C1C1C1"
-          android:textColorHint="#5E5E5E" />
+          android:textColorHint="#212121" />
 
       <EditText
           android:id="@+id/editTextTextPassword"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_margin="20dp"
+          android:autofillHints="Contraseña"
           android:ems="10"
-          android:hint="Contraseña"
+          android:hint="@string/contrase_a"
           android:inputType="textPassword"
+          android:minHeight="48dp"
           android:textColor="#C1C1C1"
           android:textColorHighlight="#048693"
-          android:textColorHint="#5E5E5E" />
+          android:textColorHint="#212121" />
 
       <Button
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginHorizontal="20dp"
-          android:layout_marginTop="120dp"
+          android:layout_marginTop="200dp"
           android:backgroundTint="#048693"
           android:onClick="onClickIngreso"
           android:shadowColor="@color/greenEmphasisSecondary"
-          android:text="Ingreso" />
+          android:text="@string/ingreso"
+          tools:ignore="TextContrastCheck" />
    </LinearLayout>
 
 
