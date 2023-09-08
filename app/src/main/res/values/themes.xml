@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.ChuteApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#048693</item>
+        <item name="colorPrimary">#187D87</item>
         <item name="colorPrimaryVariant">#048693</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
