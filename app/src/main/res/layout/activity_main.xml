@@ -11,7 +11,7 @@
    <!--Logo pantalla inicio sesión-->
    <ImageView
        android:id="@+id/imageView"
-       android:layout_width="193dp"
+       android:layout_width="194dp"
        android:layout_height="194dp"
        android:layout_marginTop="36dp"
        android:contentDescription="@string/logo_chuteapp"
@@ -20,13 +20,14 @@
        app:layout_constraintHorizontal_bias="0.497"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toTopOf="parent"
-       tools:ignore="ImageContrastCheck" />
+       tools:ignore="ImageContrastCheck"
+       android:padding="10dp"/>
 
    <!--layout donde se agregan elementos de la pantalla de inicio de sesión-->
    <LinearLayout
        android:id="@+id/linearLayout2"
-       android:layout_width="346dp"
-       android:layout_height="543dp"
+       android:layout_width="355dp"
+       android:layout_height="540dp"
        android:orientation="vertical"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +79,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginHorizontal="20dp"
-          android:layout_marginTop="200dp"
+          android:layout_marginTop="190dp"
           android:backgroundTint="#048693"
           android:onClick="onClickIngreso"
           android:shadowColor="@color/greenEmphasisSecondary"

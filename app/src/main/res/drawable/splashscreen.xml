@@ -5,6 +5,7 @@
     <item>
         <!--Logo en medio del splash-->
         <bitmap android:src="@drawable/splashball"
-            android:gravity="center"/>
+            android:gravity="center"
+            />
     </item>
 </layer-list>
