@@ -5,4 +5,9 @@
     <string name="correo_electr_nico">Correo electrónico</string>
     <string name="contrase_a">Contraseña</string>
     <string name="ingreso">Ingreso</string>
+
+    <string name="Crear_equipo">Nuevo equipo</string>
+    <string name="equipos_titulo">Equipos</string>
+    <string name="unirse_a_equipo">Unirse</string>
+
 </resources>
