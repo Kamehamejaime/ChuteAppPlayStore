@@ -9,5 +9,6 @@
     <string name="Crear_equipo">Nuevo equipo</string>
     <string name="equipos_titulo">Equipos</string>
     <string name="unirse_a_equipo">Unirse</string>
-
+    <string name="crear">Crear</string>
+    <string name="guardar">Guardar</string>>
 </resources>
