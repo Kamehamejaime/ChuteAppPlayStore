@@ -28,6 +28,12 @@
         <activity android:name=".Equipos">
 
         </activity>
+        <activity android:name=".Perfil">
+
+        </activity>
+        <activity android:name=".Crear">
+
+        </activity>
     </application>
 
 </manifest>

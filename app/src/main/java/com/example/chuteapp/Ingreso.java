@@ -22,4 +22,13 @@ public class Ingreso extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClickPerfil(View view){
+        Intent intent = new Intent(this,Perfil.class);
+        startActivity(intent);
+    }
+    public void onClickCrear(View view){
+        Intent intent = new Intent(this,Crear.class);
+        startActivity(intent);
+    }
+
 }

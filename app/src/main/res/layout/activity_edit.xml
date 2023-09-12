@@ -60,8 +60,9 @@
             android:id="@+id/editTextNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:hint="nombre"
-            android:gravity="center"/>
+            android:minHeight="48dp" />
 
         </TableRow>
         <TableRow
@@ -80,11 +81,12 @@
                 android:textStyle="bold|normal" />
 
             <EditText
-                android:id="@+id/editTextParticipantes"
+                android:id="@+id/edittextparticipantes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint=""
-                android:inputType="number" />
+                android:inputType="number"
+                android:minHeight="48dp" />
 
         </TableRow>
         <TableRow
@@ -132,7 +134,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="time" />
+                android:inputType="time"
+                android:minHeight="48dp" />
         </TableRow>
         <TableRow
             android:layout_width="match_parent"
@@ -152,10 +155,10 @@
         </TableRow>
         <Button
             android:id="@+id/btnGuardar"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/guardar" />
 
     </TableLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
