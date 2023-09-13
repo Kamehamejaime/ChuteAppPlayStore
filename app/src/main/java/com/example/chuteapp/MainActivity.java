@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     }
     //Evento botón ingresar en pantalla inicio de sesión
     public void onClickIngreso(View view){
-        Intent intent = new Intent(this, Ingreso.class);
+        Intent intent = new Intent(this, Perfil.class);
         startActivity(intent);
     }
 }
