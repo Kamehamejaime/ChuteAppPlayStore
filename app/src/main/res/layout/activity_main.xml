@@ -27,7 +27,7 @@
    <LinearLayout
        android:id="@+id/linearLayout2"
        android:layout_width="355dp"
-       android:layout_height="540dp"
+       android:layout_height="640dp"
        android:orientation="vertical"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
@@ -84,6 +84,15 @@
           android:onClick="onClickIngreso"
           android:shadowColor="@color/greenEmphasisSecondary"
           android:text="@string/ingreso"
+          tools:ignore="TextContrastCheck" />
+      <Button
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginHorizontal="20dp"
+
+          android:backgroundTint="#048693"
+          android:shadowColor="@color/greenEmphasisSecondary"
+          android:text="Registrarse"
           tools:ignore="TextContrastCheck" />
    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
