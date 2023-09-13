@@ -24,6 +24,8 @@
         </activity>
         <activity android:name=".StoreView"/>
         <activity android:name=".Equipos"/>
+        <activity android:name=".Perfil"/>
+        <activity android:name=".Crear"/>
     </application>
 
 </manifest>

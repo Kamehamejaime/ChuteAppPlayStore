@@ -27,4 +27,8 @@ public class Perfil extends AppCompatActivity {
         Intent intent = new Intent(this,Equipos.class);
         startActivity(intent);
     }
+    public void onClickStore(View view){
+        Intent intent = new Intent(this,StoreView.class);
+        startActivity(intent);
+    }
 }

@@ -15,6 +15,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageButton
+            android:id="@+id/imageButtonStore"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:layout_weight="0"
+            android:layout_gravity="end"
+            android:contentDescription="Tienda"
+            app:srcCompat="@drawable/store"
+            android:onClick="onClickStore"/>
+
         <ImageView
             android:id="@+id/imageViewProfile"
             android:layout_width="120dp"
