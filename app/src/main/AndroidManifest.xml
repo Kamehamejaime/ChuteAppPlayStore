@@ -26,6 +26,10 @@
         <activity android:name=".Equipos"/>
         <activity android:name=".Perfil"/>
         <activity android:name=".Crear"/>
+        <activity android:name=".Maps"/>
+
     </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
 </manifest>
