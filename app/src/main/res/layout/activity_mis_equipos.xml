@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:text="Eliminar"
         android:layout_below="@id/button2"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="21dp"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
