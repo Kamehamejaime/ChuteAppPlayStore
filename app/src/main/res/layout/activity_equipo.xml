@@ -5,51 +5,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".MainActivity"
     android:background="@drawable/gradient">
 
     <TextView
-        android:id="@+id/titleNewTeam"
+        android:id="@+id/titleDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/chubby"
         android:gravity="center"
-        android:text="Nuevo Equipo"
+        android:text="Detalles de equipo"
         android:textColor="@color/white"
-        android:textSize="30dp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="10dp"/>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleNewTeam">
+        app:layout_constraintTop_toBottomOf="@+id/titleDetails">
 
         <EditText
-            android:id="@+id/nomEquipo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre de equipo"
-            android:layout_marginVertical="40dp"
-            android:layout_marginHorizontal="20dp"/>
+            android:hint="Nombre"
+            android:layout_margin="30dp"
+            />
+
         <Button
-            android:id="@+id/btnNewTeam"
+            android:id="@+id/btnModificar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginVertical="40dp"
-            android:text="Crear"
-            android:onClick="onClickCrearEquipo"/>
-
-
-
-
+            android:layout_margin="30dp"
+            android:text="Modificar"
+            android:onClick="onClickModificar"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
-

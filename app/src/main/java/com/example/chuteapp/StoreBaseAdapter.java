@@ -41,7 +41,7 @@ public class StoreBaseAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View convertView, ViewGroup viewGroup) {
-        convertView = inflater.inflate(R.layout.activity_store_list, null);
+        convertView = inflater.inflate(R.layout.activity_store_view, null);
         TextView txtTextDescription = convertView.findViewById(R.id.textDesctription);
         TextView txtPrice = convertView.findViewById(R.id.textPrice);
         //ImageView itemImage = convertView.findViewById(R.id.imageIcon);

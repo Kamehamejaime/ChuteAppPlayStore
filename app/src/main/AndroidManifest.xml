@@ -27,6 +27,8 @@
         <activity android:name=".Perfil"/>
         <activity android:name=".Crear"/>
         <activity android:name=".Maps"/>
+        <activity android:name=".MisEquipos"/>
+
 
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>

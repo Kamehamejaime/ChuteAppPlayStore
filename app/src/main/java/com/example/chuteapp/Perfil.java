@@ -31,4 +31,9 @@ public class Perfil extends AppCompatActivity {
         Intent intent = new Intent(this,StoreView.class);
         startActivity(intent);
     }
+
+    public void onClickMisEquipos(View view){
+        Intent intent = new Intent(this,MisEquipos.class);
+        startActivity(intent);
+    }
 }
