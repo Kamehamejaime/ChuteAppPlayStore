@@ -5,6 +5,7 @@ import android.content.Context;
 import com.example.chuteapp.DataHelper;
 
 public class User {
+    int ID;
     DataHelper dh;
     String name;
     String lastName;
@@ -18,10 +19,9 @@ public class User {
         this.password = password;
         this.eMail = eMail;
         this.phoneNumber = phoneNumber;
-        dh = new DataHelper(context, "usuarios", null, 1);
+        dh = new DataHelper(context,"usuarios", null, 1);
     }
 
     public void login(){
-
     }
 }
