@@ -14,7 +14,7 @@ public class DataHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE usuarios (id INTEGER PRIMARY KEY, name TEXT, lastname TEXT, password TEXT, email TEXT, phonenumber INTEGER)");
-        db.execSQL("CREATE TABLE equipos (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT)");
+        db.execSQL("CREATE TABLE equipos (id INTEGER PRIMARY KEY, name TEXT)");
         db.execSQL("CREATE TABLE jugadores (id INTEGER PRIMARY KEY, user INT, team INT)");
         db.execSQL("CREATE TABLE canchas (id INTEGER PRIMARY KEY, name TEXT, address TEXT, lat DOUBLE, long DOUBLE)");
     }
@@ -26,7 +26,7 @@ public class DataHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS jugadores");
         db.execSQL("DROP TABLE IF EXISTS canchas");
         db.execSQL("CREATE TABLE usuarios (id INTEGER PRIMARY KEY, name TEXT, lastname TEXT, password TEXT, email TEXT, phonenumber INTEGER)");
-        db.execSQL("CREATE TABLE equipos (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)");
+        db.execSQL("CREATE TABLE equipos (id INTEGER PRIMARY KEY, name TEXT)");
         db.execSQL("CREATE TABLE jugadores (id INTEGER PRIMARY KEY, user INT, team INT)");
         db.execSQL("CREATE TABLE canchas (id INTEGER PRIMARY KEY, name TEXT, address TEXT, lat DOUBLE, long DOUBLE)");
     }

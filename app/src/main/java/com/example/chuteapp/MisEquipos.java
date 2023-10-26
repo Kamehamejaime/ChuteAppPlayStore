@@ -1,5 +1,6 @@
 package com.example.chuteapp;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -18,6 +19,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MisEquipos extends AppCompatActivity {
@@ -42,33 +45,32 @@ public class MisEquipos extends AppCompatActivity {
     public void CargarLista(){
         DataHelper dh = new DataHelper(this, "equipos.db", null, 1);
         SQLiteDatabase bd = dh.getWritableDatabase();
-        Cursor c = bd.rawQuery("SELECT name FROM equipos", null);
-        String[] arr = new String[c.getCount()];
-        if(c.moveToFirst() == true){
-            int i = 0;
-            do{
-                String linea =  c.getString(0) ;
-                arr[i] = linea;
-                i++;
-            }while (c.moveToNext() == true);
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>
-                    (this, android.R.layout.simple_expandable_list_item_1, arr);
-            lista.setAdapter(adapter);
-            bd.close();
+        Cursor c = bd.rawQuery("SELECT id, name FROM equipos", null);
+
+        List<EquipoAd> equiposlista = new ArrayList<>();
+
+
+        if (c.moveToFirst()) {
+            do {
+                long idBase = c.getLong(c.getColumnIndexOrThrow("id"));
+                String nameBase = c.getString(c.getColumnIndexOrThrow("name"));
+                equiposlista.add(new EquipoAd(idBase, nameBase));
+            } while (c.moveToNext());
         }
+
+        ArrayAdapter<EquipoAd> adapter = new ArrayAdapter<EquipoAd>
+                (this, android.R.layout.simple_expandable_list_item_1, equiposlista);
+        lista.setAdapter(adapter);
 
         ListView listView = findViewById(R.id.listaMisEquipos);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Aquí por fin obtengo el ID del elemento seleccionado, profe lo logré :D
-                selectedItemID = id;
+                // Aquí obtengo el ID del elemento seleccionado en la base de datos Profe, lo logré :D
+                selectedItemID = equiposlista.get(position).getId();
                 TextView txtEquipo = findViewById(R.id.idEquipo);
                 txtEquipo.setText(String.valueOf(selectedItemID));
-
-
             }
-
         });
 
     }
