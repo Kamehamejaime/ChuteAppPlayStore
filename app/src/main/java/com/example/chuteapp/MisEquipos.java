@@ -5,8 +5,12 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -14,18 +18,24 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
+
 public class MisEquipos extends AppCompatActivity {
 
     ListView lista;
     EditText edtName;
-
     TextView id;
+    private long selectedItemID;
+    Button btnEdit;
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mis_equipos);
         lista = (ListView) findViewById(R.id.listaMisEquipos);
+        btnEdit = (Button) findViewById(R.id.btnEditar);
+
         CargarLista();
 
     }
@@ -46,35 +56,44 @@ public class MisEquipos extends AppCompatActivity {
             lista.setAdapter(adapter);
             bd.close();
         }
+
+        ListView listView = findViewById(R.id.listaMisEquipos);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Aquí por fin obtengo el ID del elemento seleccionado, profe lo logré :D
+                selectedItemID = id;
+                TextView txtEquipo = findViewById(R.id.idEquipo);
+                txtEquipo.setText(String.valueOf(selectedItemID));
+
+
+            }
+
+        });
+
     }
     public void onClickCrear(View view){
         Intent intent = new Intent(this,Crear.class);
         startActivity(intent);
     }
 
-    public void onClickModificar(View view){
-        DataHelper dh = new DataHelper(this, "equipos.db", null, 1);
-        SQLiteDatabase bd = dh.getWritableDatabase();
-        ContentValues reg = new ContentValues();
-        reg.put("name", edtName.getText().toString());
-        long resp  = bd.update("equipos", reg, "id=?", new String[]
-                {id.getText().toString()});
-        bd.close();
-        if(resp == -1){
-            Toast.makeText(this, "No se pudo Modificar",
-                    Toast.LENGTH_LONG).show();
-        }else {
-            Toast.makeText(this, "Equipo Modificado",
-                    Toast.LENGTH_LONG).show();
-        }
-        CargarLista();
-    }
+    public void onClickEditar(View view){
+        TextView id = (TextView) findViewById(R.id.idEquipo);
+        // En ActivityA
+        String txtId = id.getText().toString();
 
+        Intent intent = new Intent(MisEquipos.this, Equipo.class);
+        intent.putExtra("contenido", txtId);
+        startActivity(intent);
+    }
     public void onClickEliminar(View view){
         DataHelper dh = new DataHelper(this, "equipos.db",  null, 1);
         SQLiteDatabase bd = dh.getWritableDatabase();
-        String bId = id.getText().toString();
-        long resp = bd.delete("equipos", "id="+ bId, null);
+        id = (TextView) findViewById(R.id.idEquipo);
+        int iD = Integer.parseInt(id.getText().toString());
+        long resp = bd.delete("equipos", "id="+ iD, null);
+        Log.d("EliminarRegistro", "ID a eliminar: " + iD);
+
         bd.close();
         if(resp ==-1){
             Toast.makeText(this, "No se pudo Eliminar",

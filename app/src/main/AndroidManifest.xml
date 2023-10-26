@@ -28,6 +28,7 @@
         <activity android:name=".Crear"/>
         <activity android:name=".Maps"/>
         <activity android:name=".MisEquipos"/>
+        <activity android:name=".Equipo"/>
 
 
     </application>

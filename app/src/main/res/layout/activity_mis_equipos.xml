@@ -40,43 +40,52 @@
         android:onClick="onClickCrear"/>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnEditar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Editar"
         android:layout_below="@id/button1"
         android:layout_margin="10dp"
         android:layout_centerHorizontal="true"
-        android:textSize="15sp"/>
+        android:textSize="15sp"
+        android:onClick="onClickEditar"/>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnEliminar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Eliminar"
-        android:layout_below="@id/button2"
+        android:layout_below="@id/btnEditar"
         android:layout_margin="10dp"
         android:layout_centerHorizontal="true"
-        android:textSize="15sp"/>
+        android:textSize="15sp"
+        android:onClick="onClickEliminar"/>
 
 </LinearLayout>
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/layBtn"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/linearLayout3"
+        android:layout_width="386dp"
+        android:layout_height="684dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layBtn">
+
+        <TextView
+            android:id="@+id/idEquipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Id" />
+
 
         <ListView
             android:id="@+id/listaMisEquipos"
             android:layout_width="match_parent"
-            android:layout_height="693dp"
+            android:layout_height="wrap_content"
             />
 
     </LinearLayout>
 
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
