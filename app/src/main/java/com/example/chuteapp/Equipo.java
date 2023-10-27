@@ -1,5 +1,6 @@
 package com.example.chuteapp;
 
+import static com.example.chuteapp.R.id.cargaAsync;
 import static com.example.chuteapp.R.id.idEquipo;
 
 import android.content.ContentValues;
@@ -19,6 +20,8 @@ public class Equipo extends AppCompatActivity {
 
     EditText edtName;
     int idBd;
+
+
 
 
     @Override
@@ -51,9 +54,7 @@ public class Equipo extends AppCompatActivity {
             Toast.makeText(this, "Equipo Modificado",
                     Toast.LENGTH_LONG).show();
         }
-
-        //MisEquipos me = new MisEquipos();
-        //me.CargarLista();
+        finish();
     }
 
 }

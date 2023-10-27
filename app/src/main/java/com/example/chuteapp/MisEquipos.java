@@ -3,6 +3,7 @@ package com.example.chuteapp;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,8 +23,7 @@ import java.util.List;
 public class MisEquipos extends AppCompatActivity {
 
     ListView lista;
-
-    TextView id;
+    TextView id, carga;
     private long selectedItemID;
     private String selectedItemName;
     Button btnEdit,btnDelete;
@@ -35,8 +35,9 @@ public class MisEquipos extends AppCompatActivity {
         lista = (ListView) findViewById(R.id.listaMisEquipos);
         btnEdit = (Button) findViewById(R.id.btnEditar);
         btnDelete = (Button) findViewById(R.id.btnEliminar);
-
-        CargarLista();
+        carga = (TextView) findViewById(R.id.cargaAsync);
+        MyAsyncTask asyncTask = new MyAsyncTask();
+        asyncTask.execute();
     }
 
     public void CargarLista(){
@@ -138,7 +139,28 @@ public class MisEquipos extends AppCompatActivity {
     }
 
     public void onClickActualizar(View view){
+        TextView txtEquipoId = findViewById(R.id.idEquipo);
+        txtEquipoId.setText("");
+        TextView txtEquipoName = findViewById(R.id.nameEquipo);
+        txtEquipoName.setText("");
         CargarLista();
     }
 
+    public class MyAsyncTask extends AsyncTask<Void,Void,String>{
+        @Override
+        protected String doInBackground(Void... voids){
+            try {
+                Thread.sleep(3000);
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+            return "";
+        }
+        @Override
+        protected void onPostExecute(String result){
+            carga.setVisibility(View.GONE);
+            CargarLista();
+            lista.setVisibility(View.VISIBLE);
+        }
+    }
 }

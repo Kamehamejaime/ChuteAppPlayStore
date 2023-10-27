@@ -1,6 +1,7 @@
 package com.example.chuteapp;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -31,9 +32,10 @@ public class Crear extends AppCompatActivity {
         if (resp == -1) {
             Toast.makeText(this, "No se pudo Ingresar", Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(this, "Dato Ingresado Correctamente", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Equipo creado Correctamente", Toast.LENGTH_LONG).show();
+
         }
-        //MisEquipos me = new MisEquipos();
-        //me.CargarLista();
+        finish();
+
     }
 }

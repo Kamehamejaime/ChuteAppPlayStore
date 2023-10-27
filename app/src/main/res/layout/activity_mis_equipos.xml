@@ -80,15 +80,14 @@
 
 
 
-            <TextView
-            android:id="@+id/idEquipo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-                android:gravity="center"
-                />
+                <TextView
+                android:id="@+id/idEquipo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:gravity="center"/>
 
-            <TextView
+                <TextView
                 android:id="@+id/nameEquipo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -99,13 +98,26 @@
         </LinearLayout>
 
 
+
         <ListView
             android:id="@+id/listaMisEquipos"
             android:layout_width="match_parent"
-            android:layout_height="534dp" />
+            android:layout_height="482dp"
+            android:visibility="gone"/>
 
 
     </LinearLayout>
+    <TextView
+        android:id="@+id/cargaAsync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cargando..."
+        android:fontFamily="@font/chubby"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
         android:layout_width="match_parent"
