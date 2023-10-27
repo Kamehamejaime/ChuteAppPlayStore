@@ -1,18 +1,14 @@
 package com.example.chuteapp;
 
-import android.annotation.SuppressLint;
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,12 +22,11 @@ import java.util.List;
 public class MisEquipos extends AppCompatActivity {
 
     ListView lista;
-    EditText edtName;
+
     TextView id;
     private long selectedItemID;
     private String selectedItemName;
-    Button btnEdit;
-
+    Button btnEdit,btnDelete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,43 +34,66 @@ public class MisEquipos extends AppCompatActivity {
         setContentView(R.layout.activity_mis_equipos);
         lista = (ListView) findViewById(R.id.listaMisEquipos);
         btnEdit = (Button) findViewById(R.id.btnEditar);
+        btnDelete = (Button) findViewById(R.id.btnEliminar);
 
         CargarLista();
-
     }
+
     public void CargarLista(){
         DataHelper dh = new DataHelper(this, "equipos.db", null, 1);
         SQLiteDatabase bd = dh.getWritableDatabase();
         Cursor c = bd.rawQuery("SELECT id, name FROM equipos", null);
 
+        // Se crea un arreglo donde se almacenarán los equipos obtenidos de la BD
         List<EquipoAd> equiposlista = new ArrayList<>();
-
 
         if (c.moveToFirst()) {
             do {
-                int i = 0;
+                // Se guarda la ID
                 long idBase = c.getLong(c.getColumnIndexOrThrow("id"));
-                Log.d("Guardar id", "la idBase es: "+idBase);
+
+                // Se guarda el nombre
                 String nameBase = c.getString(c.getColumnIndexOrThrow("name"));
-                Log.d("Guardar nombre","El nameBase es: "+nameBase);
 
-                EquipoAd equipo = new EquipoAd(idBase,nameBase);
+                // Se añade los datos al arreglo
+                EquipoAd equipo = new EquipoAd(idBase, nameBase);
                 equiposlista.add(equipo);
-
-                Log.d("Atributos","los atributos son:  "+equiposlista);
-
             } while (c.moveToNext());
-            ArrayAdapter<EquipoAd> adapter = new ArrayAdapter<>
-                    (this, android.R.layout.simple_expandable_list_item_1, equiposlista);
-            lista.setAdapter(adapter);
-        }
 
+            bd.close();
+
+            // Se carga la ListView
+            if (equiposlista.isEmpty()) {
+                // Si no hay elementos, hay que asegurarse de que el adaptador esté vacío
+                lista.setAdapter(null);
+                btnEdit.setVisibility(View.GONE);
+                btnDelete.setVisibility(View.GONE);
+            } else {
+                ArrayAdapter<EquipoAd> adapter = new ArrayAdapter<>
+                        (this, android.R.layout.simple_expandable_list_item_1, equiposlista);
+                lista.setAdapter(adapter);
+                btnEdit.setVisibility(View.VISIBLE);
+                btnDelete.setVisibility(View.VISIBLE);
+                clickLista(equiposlista);
+            }
+        } else {
+            // Si el cursor está vacío, hay que asegurarse de que el adaptador y la ListView estén vacíos
+            lista.setAdapter(null);
+            btnEdit.setVisibility(View.GONE);
+            btnDelete.setVisibility(View.GONE);
+            TextView txtEquipoId = findViewById(R.id.idEquipo);
+            txtEquipoId.setText("");
+            TextView txtEquipoName = findViewById(R.id.nameEquipo);
+            txtEquipoName.setText("");
+        }
+    }
+    public void clickLista(List<EquipoAd>list){
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Aquí obtengo el ID del elemento seleccionado en la base de datos Profe, lo logré :D
-                selectedItemID = equiposlista.get(position).getId();
-                selectedItemName = equiposlista.get(position).getNombre();
+                selectedItemID = list.get(position).getId();
+                selectedItemName = list.get(position).getNombre();
 
                 TextView txtEquipoId = findViewById(R.id.idEquipo);
                 txtEquipoId.setText(String.valueOf(selectedItemID));
@@ -84,7 +102,6 @@ public class MisEquipos extends AppCompatActivity {
 
             }
         });
-
     }
     public void onClickCrear(View view){
         Intent intent = new Intent(this,Crear.class);
@@ -103,12 +120,13 @@ public class MisEquipos extends AppCompatActivity {
     public void onClickEliminar(View view){
         DataHelper dh = new DataHelper(this, "equipos.db",  null, 1);
         SQLiteDatabase bd = dh.getWritableDatabase();
+
         id = (TextView) findViewById(R.id.idEquipo);
+
         int iD = Integer.parseInt(id.getText().toString());
         long resp = bd.delete("equipos", "id="+ iD, null);
-        Log.d("EliminarRegistro", "ID a eliminar: " + iD);
-
         bd.close();
+
         if(resp ==-1){
             Toast.makeText(this, "No se pudo Eliminar",
                     Toast.LENGTH_LONG).show();
@@ -116,6 +134,10 @@ public class MisEquipos extends AppCompatActivity {
             Toast.makeText(this, "Equipo Eliminado",
                     Toast.LENGTH_LONG).show();
         }
+        CargarLista();
+    }
+
+    public void onClickActualizar(View view){
         CargarLista();
     }
 

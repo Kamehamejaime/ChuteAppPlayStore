@@ -21,7 +21,6 @@ public class Crear extends AppCompatActivity {
 
         edtNombre = (EditText) findViewById(R.id.nomEquipo);
     }
-
     public void onClickCrearEquipo(View view) {
         DataHelper dh = new DataHelper(this, "equipos.db", null, 1);
         SQLiteDatabase bd = dh.getWritableDatabase();
@@ -34,5 +33,7 @@ public class Crear extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Dato Ingresado Correctamente", Toast.LENGTH_LONG).show();
         }
+        //MisEquipos me = new MisEquipos();
+        //me.CargarLista();
     }
 }

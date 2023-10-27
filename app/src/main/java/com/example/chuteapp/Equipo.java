@@ -32,7 +32,6 @@ public class Equipo extends AppCompatActivity {
             TextView idEquipoEditar = findViewById(R.id.idEditarEquipo);
             idEquipoEditar.setText(id);
             this.idBd = Integer.parseInt(id);
-
         }
     }
 
@@ -52,6 +51,9 @@ public class Equipo extends AppCompatActivity {
             Toast.makeText(this, "Equipo Modificado",
                     Toast.LENGTH_LONG).show();
         }
+
+        //MisEquipos me = new MisEquipos();
+        //me.CargarLista();
     }
 
 }
