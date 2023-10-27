@@ -29,6 +29,7 @@ public class MisEquipos extends AppCompatActivity {
     EditText edtName;
     TextView id;
     private long selectedItemID;
+    private String selectedItemName;
     Button btnEdit;
 
 
@@ -52,24 +53,35 @@ public class MisEquipos extends AppCompatActivity {
 
         if (c.moveToFirst()) {
             do {
+                int i = 0;
                 long idBase = c.getLong(c.getColumnIndexOrThrow("id"));
+                Log.d("Guardar id", "la idBase es: "+idBase);
                 String nameBase = c.getString(c.getColumnIndexOrThrow("name"));
-                equiposlista.add(new EquipoAd(idBase, nameBase));
+                Log.d("Guardar nombre","El nameBase es: "+nameBase);
+
+                EquipoAd equipo = new EquipoAd(idBase,nameBase);
+                equiposlista.add(equipo);
+
+                Log.d("Atributos","los atributos son:  "+equiposlista);
+
             } while (c.moveToNext());
+            ArrayAdapter<EquipoAd> adapter = new ArrayAdapter<>
+                    (this, android.R.layout.simple_expandable_list_item_1, equiposlista);
+            lista.setAdapter(adapter);
         }
 
-        ArrayAdapter<EquipoAd> adapter = new ArrayAdapter<EquipoAd>
-                (this, android.R.layout.simple_expandable_list_item_1, equiposlista);
-        lista.setAdapter(adapter);
-
-        ListView listView = findViewById(R.id.listaMisEquipos);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Aquí obtengo el ID del elemento seleccionado en la base de datos Profe, lo logré :D
                 selectedItemID = equiposlista.get(position).getId();
-                TextView txtEquipo = findViewById(R.id.idEquipo);
-                txtEquipo.setText(String.valueOf(selectedItemID));
+                selectedItemName = equiposlista.get(position).getNombre();
+
+                TextView txtEquipoId = findViewById(R.id.idEquipo);
+                txtEquipoId.setText(String.valueOf(selectedItemID));
+                TextView txtEquipoName = findViewById(R.id.nameEquipo);
+                txtEquipoName.setText(String.valueOf(selectedItemName));
+
             }
         });
 

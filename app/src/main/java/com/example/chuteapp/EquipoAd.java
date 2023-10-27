@@ -5,6 +5,8 @@ public class EquipoAd {
     private long id;
     private String nombre;
 
+
+
     public EquipoAd(long id, String nombre) {
         this.id = id;
         this.nombre = nombre;
@@ -24,5 +26,10 @@ public class EquipoAd {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        return nombre;
     }
 }
