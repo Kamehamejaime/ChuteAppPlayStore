@@ -49,7 +49,7 @@
           android:textSize="45sp" />
 
       <EditText
-          android:id="@+id/editTextTextEmailAddress"
+          android:id="@+id/emailLogin"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_margin="20dp"
@@ -62,7 +62,7 @@
           android:textColorHint="#212121" />
 
       <EditText
-          android:id="@+id/editTextTextPassword"
+          android:id="@+id/passwordLogin"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_margin="20dp"
@@ -89,7 +89,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginHorizontal="20dp"
-
+          android:onClick="onClickRegistro"
           android:backgroundTint="#048693"
           android:shadowColor="@color/greenEmphasisSecondary"
           android:text="Registrarse"

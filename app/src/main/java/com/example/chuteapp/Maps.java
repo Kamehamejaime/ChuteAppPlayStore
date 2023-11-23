@@ -5,6 +5,8 @@ import android.preference.PreferenceManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.chuteapp.models.Marcador;
+
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "782343880483",
+    "project_id": "chuteapp-426b2",
+    "storage_bucket": "chuteapp-426b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:782343880483:android:302b90b082d3aa6f49d696",
+        "android_client_info": {
+          "package_name": "com.example.chuteapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYNi56QkLZodKiUSvU95WHEAKwskUuq2c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

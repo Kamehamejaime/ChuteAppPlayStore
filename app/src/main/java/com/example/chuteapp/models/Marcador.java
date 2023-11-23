@@ -1,5 +1,7 @@
 package com.example.chuteapp.models;
 
+import androidx.annotation.Nullable;
+
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.Marker;
@@ -11,7 +13,7 @@ public class Marcador {
     String title;
     String snippet;
 
-    public Marcador(MapView mapView, double latitude, double longitude, String title, String snippet) {
+    public Marcador(MapView mapView, double latitude, double longitude, String title, @Nullable String snippet) {
         point = new GeoPoint(latitude, longitude);
         this.title = title;
         this.snippet = snippet;
