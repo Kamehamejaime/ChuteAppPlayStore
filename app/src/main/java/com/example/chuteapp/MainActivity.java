@@ -22,16 +22,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
-
     private EditText emailLogin, passwordLogin;
-    protected final FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    protected FirebaseUser currentUser;
+    protected FirebaseAuth mAuth;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //bloqueo de orientación de telefono por defecto Portrait
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        //Initialize FireBase Auth
+        mAuth = FirebaseAuth.getInstance();
 
         //splashScreen con logo al inicio de la app con duración de 2 seg
         setTheme(R.style.Theme_ChuteApp);
@@ -40,32 +37,35 @@ public class MainActivity extends AppCompatActivity {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        emailLogin = findViewById(R.id.emailLogin);
-        passwordLogin = findViewById(R.id.passwordLogin);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        currentUser = mAuth.getCurrentUser();
+        emailLogin = findViewById(R.id.emailLogin);
+        passwordLogin = findViewById(R.id.passwordLogin);
+    }
 
-        if(currentUser != null) {
-            Intent intent = new Intent(this, Perfil.class);
-            startActivity(intent);
+    @Override
+    protected void onStart(){
+        super.onStart();
+        FirebaseUser user = mAuth.getCurrentUser();
+        if(user != null){
+            updateUI(user);
         }
     }
     //Evento botón ingresar en pantalla inicio de sesión
     public void onClickIngreso(View view){
         String email = emailLogin.getText().toString();
         String password = passwordLogin.getText().toString();
+        if(!email.isEmpty() && !password.isEmpty()){
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "signInWithEmail:success");
-                            currentUser = mAuth.getCurrentUser();
-                            Intent intent = new Intent(MainActivity.this, Perfil.class);
-                            startActivity(intent);
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            updateUI(user);
                         }
                         else{
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
@@ -73,10 +73,21 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
+        }
+        else{
+            Toast.makeText(this, "Debe completar los parámetros", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void onClickRegistro(View view){
         Intent intent = new Intent(MainActivity.this, register.class);
         startActivity(intent);
+    }
+
+    private void reload(){ }
+
+    private void updateUI(FirebaseUser user) {
+        Intent perfilIntent = new Intent(this, Perfil.class).putExtra("user", user);
+        startActivity(perfilIntent);
     }
 }

@@ -15,17 +15,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/imageButtonStore"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill"
             android:layout_weight="0"
-            android:layout_gravity="end"
-            android:contentDescription="Tienda"
-            app:srcCompat="@drawable/store"
-            android:onClick="onClickStore"
-            />
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:backgroundTint="#9AFFFFFF"
+                app:srcCompat="@drawable/logout_24px"
+                android:onClick="logOut"
+                app:tint="#C8B71C1C" />
+
+            <Space
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0" />
+
+            <ImageButton
+                android:id="@+id/imageButtonStore"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:layout_weight="0"
+                android:backgroundTint="#00FFFFFF"
+                android:contentDescription="Tienda"
+                android:onClick="onClickStore"
+                android:scaleType="center"
+                app:srcCompat="@drawable/store" />
+
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/imageViewProfile"
@@ -37,36 +62,36 @@
             android:src="@drawable/usuario" />
 
         <TextView
-            android:id="@+id/textViewUsername"
+            android:id="@+id/usernameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/imageViewProfile"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
-            android:text="Jose Torres"
-            android:textSize="30dp"
+            android:text="Nombre"
             android:textColor="@color/white"
-            android:textStyle="bold"/>
+            android:textSize="30dp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textViewEmail"
+            android:id="@+id/emailTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textViewUsername"
+            android:layout_below="@id/usernameTextView"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
-            android:text="josetorresnomata@gmail.com"
+            android:text="Correo"
+            android:textColor="@color/white"
             android:textSize="15dp"
-            android:textStyle="bold"
-            android:textColor="@color/white"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textViewDOB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textViewEmail"
+            android:layout_below="@id/emailTextView"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"

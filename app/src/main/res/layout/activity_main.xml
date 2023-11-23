@@ -46,7 +46,11 @@
           android:gravity="center"
           android:text="@string/chuteapp"
           android:textColor="@color/white"
-          android:textSize="45sp" />
+          android:textSize="45sp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.496"
+          app:layout_constraintStart_toStartOf="parent"/>
 
       <EditText
           android:id="@+id/emailLogin"
@@ -59,7 +63,11 @@
           android:minHeight="48dp"
           android:outlineSpotShadowColor="@color/white"
           android:textColor="#C1C1C1"
-          android:textColorHint="#212121" />
+          android:textColorHint="#212121"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.496"
+          app:layout_constraintStart_toStartOf="parent" />
 
       <EditText
           android:id="@+id/passwordLogin"
@@ -73,18 +81,29 @@
           android:minHeight="48dp"
           android:textColor="#C1C1C1"
           android:textColorHighlight="#048693"
-          android:textColorHint="#212121" />
+          android:textColorHint="#212121"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.496"
+          app:layout_constraintStart_toStartOf="parent"/>
+
+      <Space
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />
 
       <Button
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginHorizontal="20dp"
-          android:layout_marginTop="160dp"
           android:backgroundTint="#048693"
           android:onClick="onClickIngreso"
           android:shadowColor="@color/greenEmphasisSecondary"
           android:text="@string/ingreso"
-          tools:ignore="TextContrastCheck" />
+          tools:ignore="TextContrastCheck"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.496"
+          app:layout_constraintStart_toStartOf="parent"/>
       <Button
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -93,6 +112,11 @@
           android:backgroundTint="#048693"
           android:shadowColor="@color/greenEmphasisSecondary"
           android:text="Registrarse"
-          tools:ignore="TextContrastCheck" />
+          tools:ignore="TextContrastCheck"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.496"
+          app:layout_constraintStart_toStartOf="parent"/>
+
    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

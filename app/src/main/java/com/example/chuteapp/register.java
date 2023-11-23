@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -43,7 +44,8 @@ public class register extends MainActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()){
                                 Log.d(TAG, "createUserWithEmail:success");
-                                currentUser = mAuth.getCurrentUser();
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                updateUI(user);
                             }
                             else{
                                 Log.w(TAG, "createUSerWithEmail:failure", task.getException());
@@ -52,5 +54,9 @@ public class register extends MainActivity {
                         }
                     });
         }
+    }
+    private void updateUI(FirebaseUser user) {
+        Intent perfilIntent = new Intent(this, Perfil.class).putExtra("user", user);
+        startActivity(perfilIntent);
     }
 }

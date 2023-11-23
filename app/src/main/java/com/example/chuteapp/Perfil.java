@@ -8,16 +8,27 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Perfil extends MainActivity {
-    private TextView username, email;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+public class Perfil extends AppCompatActivity {
+    private FirebaseUser user;
+    private TextView emailTextView, usernameTextView;
+    private String email, username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
-
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
-
+        emailTextView = findViewById(R.id.emailTextView);
+        usernameTextView = findViewById(R.id.usernameTextView);
+        Bundle bundle = getIntent().getExtras();
+        user = (FirebaseUser) bundle.get("user");
+        if (user != null) {
+            email = user.getEmail();
+            username = user.getUid();
+        }
+        setup();
     }
 
     public void onClickCrear(View view){
@@ -37,5 +48,17 @@ public class Perfil extends MainActivity {
     public void onClickMisEquipos(View view){
         Intent intent = new Intent(this,MisEquipos.class);
         startActivity(intent);
+    }
+
+    private void setup(){
+        emailTextView.setText(email);
+        usernameTextView.setText(username);
+    }
+
+    public void logOut(View view){
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mAuth.signOut();
+        Intent authIntent = new Intent(this, MainActivity.class);
+        startActivity(authIntent);
     }
 }
