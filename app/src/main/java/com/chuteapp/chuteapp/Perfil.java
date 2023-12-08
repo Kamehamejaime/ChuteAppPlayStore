@@ -1,12 +1,12 @@
-package com.example.chuteapp;
+package com.chuteapp.chuteapp;
 
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -46,7 +46,12 @@ public class Perfil extends AppCompatActivity {
     }
 
     public void onClickMisEquipos(View view){
-        Intent intent = new Intent(this,MisEquipos.class);
+        Intent intent = new Intent(this,NuevoEquipo.class);
+        startActivity(intent);
+    }
+
+    public void onClickInforme(View view){
+        Intent intent = new Intent(this, Mqtt.class);
         startActivity(intent);
     }
 

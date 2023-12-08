@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    namespace 'com.example.chuteapp'
+    namespace 'com.chuteapp.chuteapp'
     //noinspection GradleCompatible
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.chuteapp"
+        applicationId "com.chuteapp.chuteapp"
         minSdk 24
         targetSdk 33
         versionCode 1
@@ -32,11 +32,16 @@ android {
 
 dependencies {
 
+    //librerias de MQTT
+    implementation'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+    implementation'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.5'
+
     implementation 'org.osmdroid:osmdroid-android:6.1.8'
     implementation 'org.osmdroid:osmdroid-wms:6.1.11'
     implementation platform('com.google.firebase:firebase-bom:32.6.0')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.android.support:multidex:1.0.3'
     implementation("com.google.firebase:firebase-auth")
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'

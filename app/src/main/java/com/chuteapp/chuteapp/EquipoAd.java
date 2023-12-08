@@ -1,4 +1,4 @@
-package com.example.chuteapp;
+package com.chuteapp.chuteapp;
 
 public class EquipoAd {
 

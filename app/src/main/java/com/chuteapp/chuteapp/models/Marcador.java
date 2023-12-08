@@ -1,4 +1,4 @@
-package com.example.chuteapp.models;
+package com.chuteapp.chuteapp.models;
 
 import androidx.annotation.Nullable;
 

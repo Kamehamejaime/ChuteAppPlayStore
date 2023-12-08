@@ -1,8 +1,8 @@
-package com.example.chuteapp.models;
+package com.chuteapp.chuteapp.models;
 
 import android.content.Context;
 
-import com.example.chuteapp.DataHelper;
+import com.chuteapp.chuteapp.DataHelper;
 
 public class User {
     int ID;
